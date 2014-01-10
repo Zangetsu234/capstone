@@ -107,6 +107,13 @@ namespace DAL
             };
             Write("UpdateMarketingManager", parameters);
         }
-
+        public void RemoveUser(int ID)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@u_id", ID),
+            };
+            Write("RemoveUser", parameters);
+        }
     }
 }
