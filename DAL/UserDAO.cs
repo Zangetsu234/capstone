@@ -35,18 +35,19 @@ namespace DAL
                         command.Parameters.AddRange(parameters);
                     }
                     SqlDataReader data = command.ExecuteReader();
-                    List<User> subscribers = new List<User>();
+                    List<User> users = new List<User>();
                     while (data.Read())
                     {
                         User user = new User();
-                        user.ID = Convert.ToInt32(data["ID"]);
+                        user.ID = Convert.ToInt32(data["u_id"]);
+                        user.Username = data["Username"].ToString();
                         user.Email = data["Email"].ToString();
                         user.Password = data["Password"].ToString();
-                        user.Add(user);
+                        users.Add(user);
                     }
                     try
                     {
-                        return subscribers;
+                        return users;
                     }
                     catch (Exception)
                     {
@@ -54,6 +55,57 @@ namespace DAL
                     }
                 }
             }
+        }
+        public void CreateUser(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Username", user.Username),
+                new SqlParameter("@Email", user.Email),
+                new SqlParameter("@Password", user.Password),
+                new SqlParameter("@Active", 1)
+            };
+            Write("CreateUser", parameters);
+        }
+        public User GetUserByID(int ID)
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@u_id", ID)
+                };
+                return ReadMarketMans("GetUserByID", parameters).SingleOrDefault();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: \n" + e.Message);
+                Console.ReadKey();
+                return null;
+            }
+        }
+        public User GetUserByEmail(string email)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Email", email)
+            };
+            return ReadMarketMans("GetUserByEmail", parameters).SingleOrDefault();
+        }
+        public List<User> GetAllUsers()
+        {
+            return ReadMarketMans("GetAllUsers", null);
+        }
+        public void UpdateUser(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@u_id", user.ID),
+                new SqlParameter("@Username", user.Username),
+                new SqlParameter("@Email", user.Email),
+                new SqlParameter("@Password", user.Password)
+            };
+            Write("UpdateMarketingManager", parameters);
         }
 
     }
