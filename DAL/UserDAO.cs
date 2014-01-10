@@ -63,7 +63,6 @@ namespace DAL
                 new SqlParameter("@Username", user.Username),
                 new SqlParameter("@Email", user.Email),
                 new SqlParameter("@Password", user.Password),
-                new SqlParameter("@Active", 1)
             };
             Write("CreateUser", parameters);
         }
