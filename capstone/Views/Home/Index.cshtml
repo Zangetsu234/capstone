@@ -2,21 +2,34 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div style="text-align:center;">
     <h1><i>Insert project name</i></h1>
-    <p><i>Insert info about story</i></p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h5><i>Insert witty comment</i></h5>
 </div>
 
-<div class="row">
+<div>
+    <div class="col-md-4">
+        <h2>About (project name)</h2>
+        <p><i>Insert brief info about project</i></p>
+        <p class="btn btn-default">@Html.ActionLink("Learn more", "About", "Home")</p>
+    </div>
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p><i>Inset info about creating an account and character</i></p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p class="btn btn-default">
+            @if(Session["ID"] == null)
+            {
+                @Html.ActionLink("Login", "Login", "Account");
+            }
+            else
+            {
+                @Html.ActionLink("Create Character", "CreateCharacter", "Character");
+            }
+        </p>
     </div>
     <div class="col-md-4">
         <h2>Feedback</h2>
         <p><i>Insert contact info and link to a view page for emailing ideas</i></p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p class="btn btn-default">@Html.ActionLink("Contact us", "Index", "Mail")</p>
     </div>
 </div>
