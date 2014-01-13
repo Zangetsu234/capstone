@@ -48,6 +48,15 @@ namespace BLL
             }
             return false;
         }
+        public bool ConfirmUsernameLength(UserRegisterFM userFM)
+        {
+            UserDAO dao = new UserDAO();
+            if (userFM.Username != null && userFM.Username.Length < 51)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool IsValidUser(UserRegisterFM userFM)
         {
             UserDAO dao = new UserDAO();
@@ -127,11 +136,12 @@ namespace BLL
         {
             UserLoginVM userVM = null;
             UserDAO dao = new UserDAO();
-            User user = dao.GetUserByEmail(login.Email);
+            User user = dao.GetUser(login.Email);
             if (user != null && user.Password == login.Password)
             {
                 userVM = new UserLoginVM();
-                userVM.Email = user.Email;
+                userVM.Login = user.Email;
+                userVM.Login = user.Username;
                 userVM.ID = user.ID;
             }
             return userVM;

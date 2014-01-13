@@ -33,13 +33,12 @@ namespace capstone.Controllers
             if (user != null)
             {
                 Session["ID"] = user.ID;
-                Session["Name"] = user.Username;
-                Session["Email"] = user.Email;
+                Session["Name"] = user.Login;
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ViewBag.ErrorMessage = "Username or Password incorrect.";
+                ViewBag.ErrorMessage = "Email or Password incorrect.";
                 return View();
             }
         }
@@ -62,32 +61,38 @@ namespace capstone.Controllers
             {
                 if (users.ConfirmEmailLength(registerFM))
                 {
-                    if (users.IsValidUser(registerFM))
+                    if(users.ConfirmUsernameLength(registerFM))
                     {
-                        if (users.IsValidUsername(registerFM))
+                        if (users.IsValidUser(registerFM))
                         {
-                            if (registerFM.Password != null && registerFM.Password.Length > 7 && registerFM.Password.Length < 26 && registerFM.Password == registerFM.ConfirmPassword)
+                            if (users.IsValidUsername(registerFM))
                             {
-                                users.CreateUser(registerFM);
-                                login.Email = registerFM.Email;
-                                login.Username = registerFM.Username;
-                                login.Password = registerFM.Password;
-                                UserLoginVM user = new UserService().UserLogin(login);
-                                Session["ID"] = user.ID;
-                                Session["Name"] = user.Username;
-                                Session["Email"] = user.Email;
-                                return RedirectToAction("Index", "Home");
+                                if (registerFM.Password != null && registerFM.Password.Length > 7 && registerFM.Password.Length < 26 && registerFM.Password == registerFM.ConfirmPassword)
+                                {
+                                    users.CreateUser(registerFM);
+                                    login.Email = registerFM.Email;
+                                    login.Username = registerFM.Username;
+                                    login.Password = registerFM.Password;
+                                    UserLoginVM user = new UserService().UserLogin(login);
+                                    Session["ID"] = user.ID;
+                                    Session["Name"] = user.Login;
+                                    return RedirectToAction("Index", "Home");
+                                }
+                                ViewBag.ErrorMessage = "Passwords must be more than seven characters, less than 25 characters, and match.";
                             }
-                            ViewBag.ErrorMessage = "Passwords must be more than seven characters, less than 25 characters, and match.";
+                            else
+                            {
+                                ViewBag.ErrorMessage = "Username already exists.";
+                            }
                         }
                         else
                         {
-                            ViewBag.ErrorMessage = "Username already exists.";
+                            ViewBag.ErrorMessage = "Email already exists.";
                         }
                     }
                     else
                     {
-                        ViewBag.ErrorMessage = "Email already exists.";
+                        ViewBag.ErrorMessage = "Invalid Username";
                     }
                 }
                 else
