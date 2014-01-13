@@ -42,6 +42,8 @@
     <Compile Include="Character.cs" />
     <Compile Include="CharacterDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistics.cs" />
+    <Compile Include="StatisticsDAO.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDAO.cs" />
   </ItemGroup>

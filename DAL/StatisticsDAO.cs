@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class CharacterDAO
+    public class StatisticsDAO
     {
         public void Write(string statement, SqlParameter[] parameters)
         {
@@ -22,7 +22,7 @@ namespace DAL
                 }
             }
         }
-        public List<Character> ReadCharacters(string statement, SqlParameter[] parameters)
+        public List<Statistics> ReadStats(string statement, SqlParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=capstone;Integrated Security=SSPI;"))
             {
@@ -35,18 +35,19 @@ namespace DAL
                         command.Parameters.AddRange(parameters);
                     }
                     SqlDataReader data = command.ExecuteReader();
-                    List<Character> characters = new List<Character>();
+                    List<Statistics> stats = new List<Statistics>();
                     while (data.Read())
                     {
-                        Character character = new Character();
-                        character.ID = Convert.ToInt32(data["ID"]);
-                        character.Name = data["Name"].ToString();
-                        character.Alignment = data["Alignment"].ToString();
-                        characters.Add(character);
+                        Statistics stat = new Statistics();
+                        stat.ID = Convert.ToInt32(data["stat_id"]);
+                        stat.Strength = data["Strength"].ToString();
+                        stat.Intelligence = data["Intelligence"].ToString();
+                        stat.Dexterity = data["Dexterity"].ToString();
+                        stats.Add(stat);
                     }
                     try
                     {
-                        return characters;
+                        return stats;
                     }
                     catch (Exception)
                     {
@@ -55,21 +56,15 @@ namespace DAL
                 }
             }
         }
-        public void CreateCharacter(Character character)
+        public void CreateStats(Statistics stat)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Name", character.Name)
+                new SqlParameter("@Strength", stat.Strength),
+                new SqlParameter("@Intelligence", stat.Intelligence),
+                new SqlParameter("@Dexterity", stat.Dexterity),
             };
-            Write("CreateCharacter", parameters);
-        }
-        public void RemoveCharacter(int ID)
-        {
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@c_id", ID),
-            };
-            Write("RemoveCharacter", parameters);
+            Write("CreateStats", parameters);
         }
     }
 }

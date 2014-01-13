@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Character
+    public class Statistics
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Alignment { get; set; }
+        public string Strength { get; set; }
+        public string Intelligence { get; set; }
+        public string Dexterity { get; set; }
     }
 }

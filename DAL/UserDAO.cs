@@ -22,7 +22,7 @@ namespace DAL
                 }
             }
         }
-        public List<User> ReadMarketMans(string statement, SqlParameter[] parameters)
+        public List<User> ReadUsers(string statement, SqlParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=capstone;Integrated Security=SSPI;"))
             {
@@ -74,7 +74,7 @@ namespace DAL
                 {
                     new SqlParameter("@u_id", ID)
                 };
-                return ReadMarketMans("GetUserByID", parameters).SingleOrDefault();
+                return ReadUsers("GetUserByID", parameters).SingleOrDefault();
             }
             catch (Exception e)
             {
@@ -89,7 +89,7 @@ namespace DAL
             {
                 new SqlParameter("@Email", email)
             };
-            return ReadMarketMans("GetUserByEmail", parameters).SingleOrDefault();
+            return ReadUsers("GetUserByEmail", parameters).SingleOrDefault();
         }
         public User GetUserByUsername(string username)
         {
@@ -97,11 +97,11 @@ namespace DAL
             {
                 new SqlParameter("@Username", username)
             };
-            return ReadMarketMans("GetUserByUsername", parameters).SingleOrDefault();
+            return ReadUsers("GetUserByUsername", parameters).SingleOrDefault();
         }
         public List<User> GetAllUsers()
         {
-            return ReadMarketMans("GetAllUsers", null);
+            return ReadUsers("GetAllUsers", null);
         }
         public void UpdateUser(User user)
         {
