@@ -9,6 +9,20 @@ namespace BLL
 {
     public class StatFM
     {
+        public int ID { get; set; }
+        public string Strength { get; set; }
+        public string Intelligence { get; set; }
+        public string Dexterity { get; set; }
+        public StatFM(Statistics stat)
+        {
+            this.ID = stat.ID;
+            this.Strength = stat.Strength;
+            this.Intelligence = stat.Intelligence;
+            this.Dexterity = stat.Dexterity;
+        }
+        public StatFM()
+        {
 
+        }
     }
 }
