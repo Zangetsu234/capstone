@@ -39,6 +39,15 @@ namespace BLL
             }
             return false;
         }
+        public bool IsValidUsername(UserRegisterFM userFM)
+        {
+            UserDAO dao = new UserDAO();
+            if (dao.GetUserByUsername(userFM.Username) == null)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool IsValidUser(UserRegisterFM userFM)
         {
             UserDAO dao = new UserDAO();

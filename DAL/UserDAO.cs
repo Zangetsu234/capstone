@@ -91,6 +91,14 @@ namespace DAL
             };
             return ReadMarketMans("GetUserByEmail", parameters).SingleOrDefault();
         }
+        public User GetUserByUsername(string username)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Username", username)
+            };
+            return ReadMarketMans("GetUserByUsername", parameters).SingleOrDefault();
+        }
         public List<User> GetAllUsers()
         {
             return ReadMarketMans("GetAllUsers", null);
@@ -104,7 +112,7 @@ namespace DAL
                 new SqlParameter("@Email", user.Email),
                 new SqlParameter("@Password", user.Password)
             };
-            Write("UpdateMarketingManager", parameters);
+            Write("UpdateUser", parameters);
         }
         public void RemoveUser(int ID)
         {
