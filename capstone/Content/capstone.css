@@ -16,7 +16,6 @@ html {
 }
 
 #top_nav ul { 
-    display: inline-block;
     float:left;
     padding-right:25px; 
 }
@@ -46,10 +45,6 @@ html {
 
 #content {
     background-color: white;
-    height: 350px;
-    width: 1010px;
-    overflow: auto;
-    padding: 25px;
 }
 
 #footer { 
