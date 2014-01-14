@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Character\CharacterFM.cs" />
     <Compile Include="Character\CharacterService.cs" />
+    <Compile Include="Character\CharactersVM.cs" />
     <Compile Include="Character\CharacterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stats\StatFM.cs" />

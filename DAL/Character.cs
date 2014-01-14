@@ -11,5 +11,6 @@ namespace DAL
         public int ID { get; set; }
         public string Name { get; set; }
         public string Alignment { get; set; }
+        public int Foreign { get; set; }
     }
 }

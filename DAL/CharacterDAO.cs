@@ -59,15 +59,19 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Name", character.Name)
+                new SqlParameter("@Name", character.Name),
             };
             Write("CreateCharacter", parameters);
+        }
+        public List<Character> GetAllCharacters()
+        {
+            return ReadCharacters("GetAllCharacters", null);
         }
         public void RemoveCharacter(int ID)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@c_id", ID),
+                new SqlParameter("@c_id", ID)
             };
             Write("RemoveCharacter", parameters);
         }
