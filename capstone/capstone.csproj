@@ -158,6 +158,7 @@
     <Content Include="Views\Character\Create.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\_ChangePassword.cshtml" />
+    <Content Include="Views\Account\_DeleteAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

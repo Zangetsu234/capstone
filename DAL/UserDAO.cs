@@ -90,7 +90,8 @@ namespace DAL
                 new SqlParameter("@Email", email),
                 new SqlParameter("@Username", email)
             };
-            return ReadUsers("GetUser", parameters).SingleOrDefault();
+            List<User> user = ReadUsers("GetUser", parameters);
+            return user[0];
         }
         public User GetUserByEmail(string email)
         {
@@ -126,7 +127,7 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@u_id", ID),
+                new SqlParameter("@u_id", ID)
             };
             Write("RemoveUser", parameters);
         }

@@ -1,0 +1,16 @@
+﻿@model BLL.UserVM
+
+@{
+    ViewBag.Title = "Delete Account";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Delete", "Account"))
+{
+    <div>
+        <p>Delete Account</p>
+    </div>
+    @Html.HiddenFor(model => model.ID)
+    <input type="submit" value="Delete" />
+}
