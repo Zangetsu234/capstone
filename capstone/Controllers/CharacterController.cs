@@ -9,13 +9,17 @@ namespace capstone.Controllers
 {
     public class CharacterController : Controller
     {
-        [HttpGet]
-        public ActionResult Create()
+        public ActionResult Index()
         {
             if(Session["ID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
             return View();
         }
         [HttpPost]

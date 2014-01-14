@@ -117,7 +117,6 @@ namespace DAL
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@u_id", user.ID),
-                new SqlParameter("@Username", user.Username),
                 new SqlParameter("@Email", user.Email),
                 new SqlParameter("@Password", user.Password)
             };

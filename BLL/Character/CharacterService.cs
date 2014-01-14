@@ -38,7 +38,7 @@ namespace BLL
             }
             return false;
         }
-        public void RemoveUser(int ID)
+        public void RemoveCharacter(int ID)
         {
             CharacterDAO dao = new CharacterDAO();
             dao.RemoveCharacter(ID);

@@ -47,6 +47,40 @@ namespace capstone.Controllers
             Session["ID"] = null;
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Manage()
+        {
+            return View();
+        }
+        public ActionResult Edit(int ID)
+        {
+            UserService users = new UserService();
+            UserFM userFM = users.GetUserFM(ID);
+            return View(userFM);
+        }
+        [HttpPost]
+        public ActionResult Edit(UserFM userFM)
+        {
+            UserService users = new UserService();
+            users.UpdateUser(userFM);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult ChangePassword(int ID)
+        {
+            UserService users = new UserService();
+            return View(users.GetUserPassFM(ID));
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(UserPassFM passFM)
+        {
+            UserService users = new UserService();
+            passFM.ID = Convert.ToInt32(Session["ID"]);
+            if (users.VerifyPassword(passFM) && passFM.NewPassword == passFM.VerifyPassword && passFM.NewPassword.Length > 7)
+            {
+                users.UpdatePassword(passFM);
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult Register()
         {
@@ -92,12 +126,12 @@ namespace capstone.Controllers
                     }
                     else
                     {
-                        ViewBag.ErrorMessage = "Invalid Username";
+                        ViewBag.ErrorMessage = "Username must be less than 51 characters.";
                     }
                 }
                 else
                 {
-                    ViewBag.ErrorMessage = "Invalid email.";
+                    ViewBag.ErrorMessage = "Email must be less than 101 characters.";
                 }
             }
             else
@@ -105,6 +139,12 @@ namespace capstone.Controllers
                 ViewBag.ErrorMessage = "Email not valid.";
             }
             return View();
+        }
+        public ActionResult Delete(UserVM userVM)
+        {
+            UserService log = new UserService();
+            log.RemoveUser(userVM.ID);
+            return RedirectToAction("Index");
         }
 	}
 }
