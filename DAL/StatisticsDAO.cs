@@ -43,6 +43,7 @@ namespace DAL
                         stat.Strength = data["Strength"].ToString();
                         stat.Intelligence = data["Intelligence"].ToString();
                         stat.Dexterity = data["Dexterity"].ToString();
+                        stat.Foreign = Convert.ToInt32(data["Foreign"]);
                         stats.Add(stat);
                     }
                     try
@@ -63,6 +64,7 @@ namespace DAL
                 new SqlParameter("@Strength", stat.Strength),
                 new SqlParameter("@Intelligence", stat.Intelligence),
                 new SqlParameter("@Dexterity", stat.Dexterity),
+                new SqlParameter("@c_id", stat.Foreign)
             };
             Write("CreateStats", parameters);
         }

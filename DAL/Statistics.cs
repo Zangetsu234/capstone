@@ -12,5 +12,6 @@ namespace DAL
         public string Strength { get; set; }
         public string Intelligence { get; set; }
         public string Dexterity { get; set; }
+        public int Foreign { get; set; }
     }
 }

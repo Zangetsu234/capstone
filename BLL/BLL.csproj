@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stats\StatFM.cs" />
     <Compile Include="Stats\StatService.cs" />
+    <Compile Include="Stats\StatsVM.cs" />
     <Compile Include="Stats\StatVM.cs" />
     <Compile Include="User\UserFM.cs" />
     <Compile Include="User\UserLoginFM.cs" />

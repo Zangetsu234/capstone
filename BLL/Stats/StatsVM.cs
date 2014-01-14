@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class CharactersVM
+    public class StatsVM
     {
-        public List<CharacterVM> Characters { get; set; }
-        public CharactersVM()
+        public List<StatVM> Stats { get; set; }
+        public StatsVM()
         {
-            Characters = new List<CharacterVM>();
+            Stats = new List<StatVM>();
         }
     }
 }
