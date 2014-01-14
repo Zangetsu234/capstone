@@ -42,6 +42,7 @@ namespace DAL
                         character.ID = Convert.ToInt32(data["ID"]);
                         character.Name = data["Name"].ToString();
                         character.Alignment = data["Alignment"].ToString();
+                        character.Foreign = Convert.ToInt32(data["Foreign"]);
                         characters.Add(character);
                     }
                     try
@@ -60,6 +61,7 @@ namespace DAL
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@Name", character.Name),
+                new SqlParameter("@u_id", character.Foreign)
             };
             Write("CreateCharacter", parameters);
         }

@@ -32,6 +32,7 @@ namespace BLL
                 Character character = new Character();
                 character.Name = characterFM.Name;
                 character.Alignment = characterFM.Alignment;
+                character.Foreign = characterFM.Foreign;
                 dao.CreateCharacter(character);
                 return true;
             }

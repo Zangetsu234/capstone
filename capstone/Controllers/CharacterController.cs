@@ -24,6 +24,7 @@ namespace capstone.Controllers
             CharacterService charserv = new CharacterService();
             if(charFM.Name != null && charserv.CharacterNameLength(charFM))
             {
+                charFM.Foreign = Convert.ToInt32(Session["ID"]);
                 charserv.CreateCharacter(charFM);
                 return RedirectToAction("Create");
             }
