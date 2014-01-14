@@ -65,9 +65,9 @@ namespace DAL
             };
             Write("CreateCharacter", parameters);
         }
-        public List<Character> GetAllCharacters()
+        public List<Character> GetUserCharacters()
         {
-            return ReadCharacters("GetAllCharacters", null);
+            return ReadCharacters("GetUserCharacters", null);
         }
         public void RemoveCharacter(int ID)
         {

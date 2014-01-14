@@ -9,21 +9,6 @@ namespace BLL
 {
     public class CharacterService
     {
-        public CharactersVM GetUsers()
-        {
-            CharacterDAO dao = new CharacterDAO();
-            List<Character> characters = dao.GetAllCharacters();
-            CharactersVM charactersVM = new CharactersVM();
-            foreach(Character character in characters)
-            {
-                CharacterVM characterVM = new CharacterVM();
-                characterVM.ID = character.ID;
-                characterVM.Name = character.Name;
-                characterVM.Alignment = character.Alignment;
-                charactersVM.Characters.Add(characterVM);
-            }
-            return charactersVM;
-        }
         public bool CreateCharacter(CharacterFM characterFM)
         {
             if (CharacterNameLength(characterFM))
@@ -37,6 +22,17 @@ namespace BLL
                 return true;
             }
             return false;
+        }
+        public List<Character> GetAllCharacters()
+        {
+            List<Character> charList = new List<Character>();
+            CharacterDAO dao = new CharacterDAO();
+            List<Character> characters = dao.GetUserCharacters();
+            foreach (Character character in characters)
+            {
+                charList.Add(character);
+            }
+            return charList;
         }
         public void RemoveCharacter(int ID)
         {

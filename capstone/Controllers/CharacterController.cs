@@ -30,7 +30,7 @@ namespace capstone.Controllers
             {
                 charFM.Foreign = Convert.ToInt32(Session["ID"]);
                 charserv.CreateCharacter(charFM);
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             }
             else
             {
