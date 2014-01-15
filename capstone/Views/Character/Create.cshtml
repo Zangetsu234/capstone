@@ -6,7 +6,7 @@
 <h2>@ViewBag.Title.</h2>
 
 <section>
-    @using (Html.BeginForm("Index", "Character", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Create", "Character", FormMethod.Post))
     {
         <h4>Create a new character.</h4>
         @ViewBag.ErrorMessage

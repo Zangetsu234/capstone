@@ -1,9 +1,11 @@
 ﻿@if (Session["ID"] != null)
 {
     <ul>
-        <li>@Html.ActionLink("Welcome, " + Session["Name"] + ".", "Index", "Home", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+        <li>@Html.ActionLink("Welcome, " + Session["Name"] + ".", "Index", "Home")</li>
         <li>|</li>
         <li>@Html.ActionLink("Create Character", "Create", "Character")</li>
+        <li>|</li>
+        <li>@Html.ActionLink("View Characters", "ViewCharacters", "Character")</li>
         <li>|</li>
         <li>@Html.ActionLink("Manage Account", "Manage", "Account")</li>
         <li>|</li>
@@ -13,8 +15,8 @@
 else
 {
     <ul>
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account")</li>
         <li>|</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account")</li>
     </ul>
 }

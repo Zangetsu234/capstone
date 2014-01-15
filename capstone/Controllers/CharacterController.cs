@@ -9,17 +9,13 @@ namespace capstone.Controllers
 {
     public class CharacterController : Controller
     {
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Create()
         {
             if(Session["ID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
-        }
-        [HttpGet]
-        public ActionResult Create()
-        {
             return View();
         }
         [HttpPost]
@@ -30,13 +26,20 @@ namespace capstone.Controllers
             {
                 charFM.Foreign = Convert.ToInt32(Session["ID"]);
                 charserv.CreateCharacter(charFM);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 ViewBag.ErrorMessage = "Character name not valid.";
             }
             return View(charFM);
+        }
+        public ActionResult ViewCharacters(CharacterFM charFM)
+        {
+            CharacterService charS = new CharacterService();
+            CharactersVM character = new CharactersVM();
+            character.Characters = charS.GetUserCharacters(charFM.Foreign);
+            return View("ViewCharacters", character);
         }
     }
 }

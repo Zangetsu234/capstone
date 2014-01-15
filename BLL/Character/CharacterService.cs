@@ -23,16 +23,34 @@ namespace BLL
             }
             return false;
         }
-        public List<Character> GetAllCharacters()
+        public CharacterVM ConvertCharacter(Character character)
         {
-            List<Character> charList = new List<Character>();
+            CharacterVM charVM = new CharacterVM();
+            charVM.ID = character.ID;
+            charVM.Name = character.Name;
+            charVM.Alignment = character.Alignment;
+            charVM.Foreign = character.Foreign;
+            return charVM;
+        }
+        public Character ConvertCharacter(CharacterVM charVM)
+        {
+            Character character = new Character();
+            character.ID = charVM.ID;
+            character.Name = charVM.Name;
+            character.Alignment = charVM.Alignment;
+            character.Foreign = charVM.Foreign;
+            return character;
+        }
+        public List<CharacterVM> GetUserCharacters(int u_id)
+        {
+            List<CharacterVM> charsVM = new List<CharacterVM>();
             CharacterDAO dao = new CharacterDAO();
-            List<Character> characters = dao.GetUserCharacters();
+            List<Character> characters = dao.GetUserCharacters(u_id);
             foreach (Character character in characters)
             {
-                charList.Add(character);
+                charsVM.Add(ConvertCharacter(character));
             }
-            return charList;
+            return charsVM;
         }
         public void RemoveCharacter(int ID)
         {

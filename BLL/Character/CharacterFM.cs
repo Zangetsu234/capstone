@@ -13,16 +13,5 @@ namespace BLL
         public string Name { get; set; }
         public string Alignment { get; set; }
         public int Foreign { get; set; }
-        public CharacterFM(Character character)
-        {
-            this.ID = character.ID;
-            this.Name = character.Name;
-            this.Alignment = character.Alignment;
-            this.Foreign = character.Foreign;
-        }
-        public CharacterFM()
-        {
-
-        }
     }
 }
