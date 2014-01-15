@@ -27,6 +27,11 @@ section {
     text-align:center;
 }
 
+table {
+    margin:auto;
+    text-align:center;
+}
+
 #form-group {
     text-align:center;
 }

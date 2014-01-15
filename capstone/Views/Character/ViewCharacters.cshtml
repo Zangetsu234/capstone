@@ -1,8 +1,27 @@
 ﻿@model BLL.CharactersVM
+@using BLL;
 
 @{
-    ViewBag.Title = "Your Characters";
+    ViewBag.Title = "View Characters";
 }
 
+<div>
 <h2>@ViewBag.Title</h2>
-
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Your Characters</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Characters.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Characters[i].Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

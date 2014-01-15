@@ -34,11 +34,11 @@ namespace capstone.Controllers
             }
             return View(charFM);
         }
-        public ActionResult ViewCharacters(CharacterFM charFM)
+        public ActionResult ViewCharacters()
         {
             CharacterService charS = new CharacterService();
             CharactersVM character = new CharactersVM();
-            character.Characters = charS.GetUserCharacters(charFM.Foreign);
+            character.Characters = charS.GetUserCharacters(Convert.ToInt32(Session["ID"]));
             return View("ViewCharacters", character);
         }
     }
