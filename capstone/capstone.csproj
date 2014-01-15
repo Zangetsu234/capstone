@@ -164,6 +164,7 @@
     <Content Include="Views\Character\ViewCharacters.cshtml" />
     <Content Include="Views\Character\_CreateCharacter.cshtml" />
     <Content Include="Views\Stat\_CreateStat.cshtml" />
+    <Content Include="Views\Stat\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

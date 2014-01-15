@@ -1,1 +1,13 @@
-﻿
+﻿@model BLL.StatVM
+
+@{
+    ViewBag.Title = "Create Stats";
+}
+
+<section>
+    @using (Html.BeginForm("Create", "Stat", FormMethod.Post))
+    {
+        <h4>Create Character Stats.</h4>
+        @ViewBag.ErrorMessage
+    }
+</section>

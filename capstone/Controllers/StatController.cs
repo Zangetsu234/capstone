@@ -20,6 +20,11 @@ namespace capstone.Controllers
             stats.Stats = statS.GetCharacterStats(Convert.ToInt32(Session["ID"]));
             return View("ViewStats", stats);
         }
+        public ActionResult _CreateStat()
+        {
+            StatVM statVM = new StatVM();
+            return PartialView("_CreateStat", statVM);
+        }
 
 	}
 }
