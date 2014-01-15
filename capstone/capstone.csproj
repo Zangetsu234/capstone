@@ -162,7 +162,6 @@
     <Content Include="Views\Account\_DeleteAccount.cshtml" />
     <Content Include="Views\Stat\ViewStats.cshtml" />
     <Content Include="Views\Character\ViewCharacters.cshtml" />
-    <Content Include="Views\Stat\_CreateStat.cshtml" />
     <Content Include="Views\Stat\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

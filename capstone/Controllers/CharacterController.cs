@@ -38,6 +38,10 @@ namespace capstone.Controllers
         }
         public ActionResult ViewCharacters()
         {
+            if(Session["ID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             CharacterService charS = new CharacterService();
             CharactersVM character = new CharactersVM();
             character.Characters = charS.GetUserCharacters(Convert.ToInt32(Session["ID"]));
