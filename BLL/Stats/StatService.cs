@@ -9,16 +9,16 @@ namespace BLL
 {
     public class StatService
     {
-        public bool CreateStats(StatFM statFM)
+        public void CreateStats(StatFM statFM, string name)
         {
             StatisticsDAO dao = new StatisticsDAO();
+            CharacterDAO cdao = new CharacterDAO();
             Statistics stat = new Statistics();
             stat.Strength = statFM.Strength;
             stat.Intelligence = statFM.Intelligence;
             stat.Dexterity = statFM.Dexterity;
-            stat.Foreign = statFM.Foreign;
+            stat.Foreign = cdao.GetCharacterByName(name).ID;
             dao.CreateStats(stat);
-            return true;
         }
         public StatVM ConvertStat(Statistics stat)
         {

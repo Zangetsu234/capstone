@@ -19,13 +19,15 @@ namespace capstone.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CharacterFM charFM)
+        public ActionResult Create(CharacterFM charFM, StatFM statFM)
         {
             CharacterService charserv = new CharacterService();
+            StatService statserv = new StatService();
             if(charFM.Name != null && charserv.CharacterNameLength(charFM))
             {
                 charFM.Foreign = Convert.ToInt32(Session["ID"]);
                 charserv.CreateCharacter(charFM);
+                statserv.CreateStats(statFM, charFM.Name);
                 return RedirectToAction("Index", "Home");
             }
             else

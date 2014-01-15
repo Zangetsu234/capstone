@@ -82,5 +82,13 @@ namespace DAL
             };
             Write("RemoveCharacter", parameters);
         }
+        public Character GetCharacterByName(string name)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Name", name)
+            };
+            return ReadCharacters("GetCharacterByName", parameters).SingleOrDefault();
+        }
     }
 }

@@ -61,9 +61,6 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Strength", stat.Strength),
-                new SqlParameter("@Intelligence", stat.Intelligence),
-                new SqlParameter("@Dexterity", stat.Dexterity),
                 new SqlParameter("@c_id", stat.Foreign)
             };
             Write("CreateStats", parameters);
