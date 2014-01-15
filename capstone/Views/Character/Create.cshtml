@@ -1,14 +1,30 @@
-﻿@{
+﻿@model BLL.CharacterVM
+
+@{
     ViewBag.Title = "Create Character";
 }
 
 <h2>@ViewBag.Title</h2>
 
 <section>
-    <div>
-        @Html.Partial("_CreateCharacter")
-    </div>
-    <div>
-        @Html.Action("_CreateStat", "Stat", new { })
-    </div>
+    @using (Html.BeginForm("Create", "Character", FormMethod.Post))
+    {
+        <h4>Create a new character.</h4>
+        @ViewBag.ErrorMessage
+        <div>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Character Name" })
+        </div>
+        <div>
+            <h5>Alignment</h5>
+            @Html.RadioButtonFor(m => m.Alignment, true, new { @checked = "checked" }) Good
+            <p style="margin:3px;"></p>
+            @Html.RadioButtonFor(m => m.Alignment, false) Evil
+        </div>
+        <div>
+            @Html.Action("_CreateStat", "Stat", new { })
+        </div>
+        <footer>
+            <input type="submit" class="btn btn-default" value="Create" />
+        </footer>
+    }
 </section>
