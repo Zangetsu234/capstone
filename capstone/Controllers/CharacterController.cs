@@ -36,6 +36,7 @@ namespace capstone.Controllers
             }
             return View(charFM);
         }
+        [HttpGet]
         public ActionResult ViewCharacters()
         {
             if(Session["ID"] == null)

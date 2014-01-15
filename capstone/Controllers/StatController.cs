@@ -9,7 +9,7 @@ namespace capstone.Controllers
 {
     public class StatController : Controller
     {
-        public ActionResult ViewStats()
+        public ActionResult ViewStats(int ID)
         {
             if(Session["ID"] == null)
             {
@@ -17,7 +17,7 @@ namespace capstone.Controllers
             }
             StatService statS = new StatService();
             StatsVM stats = new StatsVM();
-            stats.Stats = statS.GetCharacterStats(Convert.ToInt32(Session["ID"]));
+            stats.Stats = statS.GetCharacterStats(ID);
             return View("ViewStats", stats);
         }
 	}

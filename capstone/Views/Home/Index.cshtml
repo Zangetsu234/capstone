@@ -2,21 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
-<div style="text-align:center;">
+<div>
     <h1><i>Insert project name</i></h1>
     <h5><i>Insert witty comment</i></h5>
 </div>
 
 <div>
-    <div class="col-md-4">
+    <div>
         <h2>About (project name)</h2>
         <p><i>Insert brief info about project</i></p>
-        <p class="btn btn-default">@Html.ActionLink("Learn more", "About", "Home")</p>
+        <p>@Html.ActionLink("Learn more", "About", "Home")</p>
     </div>
-    <div class="col-md-4">
+    <div>
         <h2>Getting started</h2>
         <p><i>Inset info about creating an account and character</i></p>
-        <p class="btn btn-default">
+        <p>
             @if(Session["ID"] == null)
             {
                 @Html.ActionLink("Login", "Login", "Account");
@@ -27,9 +27,9 @@
             }
         </p>
     </div>
-    <div class="col-md-4">
+    <div>
         <h2>Feedback</h2>
         <p><i>Insert contact info and link to a view page for emailing ideas</i></p>
-        <p class="btn btn-default">@Html.ActionLink("Contact Us", "Contact", "Home")</p>
+        <p>@Html.ActionLink("Contact Us", "Contact", "Home")</p>
     </div>
 </div>
