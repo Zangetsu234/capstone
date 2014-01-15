@@ -9,13 +9,17 @@ namespace capstone.Controllers
 {
     public class StatController : Controller
     {
-        public ActionResult Index()
+        public ActionResult ViewStats()
         {
-            if (Session["ID"] == null)
+            if(Session["ID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            StatService statS = new StatService();
+            StatsVM stats = new StatsVM();
+            stats.Stats = statS.GetCharacterStats(Convert.ToInt32(Session["ID"]));
+            return View("ViewStats", stats);
         }
+
 	}
 }

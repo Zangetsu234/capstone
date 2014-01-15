@@ -160,8 +160,10 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\_ChangePassword.cshtml" />
     <Content Include="Views\Account\_DeleteAccount.cshtml" />
-    <Content Include="Views\Stat\View.cshtml" />
+    <Content Include="Views\Stat\ViewStats.cshtml" />
     <Content Include="Views\Character\ViewCharacters.cshtml" />
+    <Content Include="Views\Character\_CreateCharacter.cshtml" />
+    <Content Include="Views\Stat\_CreateStat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

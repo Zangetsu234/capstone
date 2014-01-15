@@ -1,0 +1,30 @@
+﻿@model BLL.CharacterVM
+
+@{
+    ViewBag.Title = "Create Character";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<section>
+    @using (Html.BeginForm("Create", "Character", FormMethod.Post))
+    {
+        <h4>Create a new character.</h4>
+        @ViewBag.ErrorMessage
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Character Name" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Alignment, new { @class = "form-control", placeholder = "Alignment" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Create" />
+            </div>
+        </div>
+    }
+</section>

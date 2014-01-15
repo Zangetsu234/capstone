@@ -68,9 +68,13 @@ namespace DAL
             };
             Write("CreateStats", parameters);
         }
-        public List<Statistics> GetAllStats()
+        public List<Statistics> GetCharacterStats(int c_id)
         {
-            return ReadStats("GetAllStats", null);
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@c_id", c_id)
+            };
+            return ReadStats("GetCharacterStats", parameters);
         }
     }
 }
