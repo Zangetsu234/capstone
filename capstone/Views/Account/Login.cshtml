@@ -6,25 +6,23 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div>
-    @ViewBag.ErrorMessage
-</div>
-<div class="row">
-    <section>
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-        {
-            <div>
-                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email or Username" })
-            </div>
-            <div>
-                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
-            </div>
-            <div>
-                <input type="submit" value="Log in" />
-            </div>
-            <p>
-                @Html.ActionLink("Register", "Register") if you don't have a local account.
-            </p>
-        }
-    </section>
-</div>
+<section>
+    <div>
+        @ViewBag.ErrorMessage
+    </div>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email or Username" })
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+        </div>
+        <div>
+            <input type="submit" value="Log in" />
+        </div>
+        <p>
+            @Html.ActionLink("Register", "Register") if you don't have a local account.
+        </p>
+    }
+</section>

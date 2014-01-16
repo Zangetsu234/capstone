@@ -4,27 +4,24 @@
     ViewBag.Title = "View Characters";
 }
 
-<div>
-    <h2>@ViewBag.Title</h2>
-</div>
-<div>
-    <table>
-        <thead>
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Your Characters</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Characters.Count; i++)
+        {
             <tr>
-                <th>Your Characters</th>
+                <td>
+                @Model.Characters[i].Name:  
+                @Html.ActionLink("View Stats", "ViewStats", "Stat", new { ID = @Model.Characters[i].ID }, new { })  
+                @Html.ActionLink("Start Game", "Start", "Story", new { CharID = @Model.Characters[i].ID }, new { })
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Characters.Count; i++)
-            {
-                <tr>
-                    <td>
-                    @Model.Characters[i].Name:  
-                    @Html.ActionLink("View Stats", "ViewStats", "Stat", new { ID = @Model.Characters[i].ID }, new { })  
-                    @Html.ActionLink("Start Game", "Start", "Story", new { CharID = @Model.Characters[i].ID }, new { })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+        }
+    </tbody>
+</table>

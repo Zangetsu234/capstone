@@ -6,17 +6,19 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using(Html.BeginForm("Choose", "Character", FormMethod.Post))
-{
-<select name="CharID">
-    <option value=0>Create Character</option>
-    @if(Model.Count != null)
+<section>
+    @using (Html.BeginForm("Choose", "Character", FormMethod.Post))
     {
-        for (int i = 0; i < Model.Count; i++)
-        {
-            <option value=@Model[i].ID>@Model[i].Name</option>
-        }
+        <select name="CharID">
+            <option value=0>Create Character</option>
+            @if (Model.Count != null)
+            {
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    <option value=@Model[i].ID>@Model[i].Name</option>
+                }
+            }
+        </select>
+        <input type="submit" value="Choose" />
     }
-</select>
-<input type="submit" value="Choose" />
-}
+</section>

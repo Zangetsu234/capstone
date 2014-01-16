@@ -1,4 +1,5 @@
 ﻿@model BLL.UserRegisterFM
+
 @{
     ViewBag.Title = "Register";
 }
@@ -10,31 +11,20 @@
     {
         <h4>Create a new account.</h4>
         @ViewBag.ErrorMessage
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Username" })
-            </div>
+        <div>
+            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Username" })
         </div>
-
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
-            </div>
+        <div>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-            </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
-            </div>
+        <div>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value="Register" />
-            </div>
+        <div>
+            <input type="submit" class="btn btn-default" value="Register" />
         </div>
     }
 </section>
