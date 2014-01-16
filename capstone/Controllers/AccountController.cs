@@ -29,18 +29,22 @@ namespace capstone.Controllers
         [HttpPost]
         public ActionResult Login(UserLoginFM credientials)
         {
-            UserLoginVM user = new UserService().UserLogin(credientials);
-            if (user != null)
+            if (credientials.Email != null)
             {
-                Session["ID"] = user.ID;
-                Session["Name"] = user.Login;
-                return RedirectToAction("Index", "Home");
+                UserLoginVM user = new UserService().UserLogin(credientials);
+                if (user != null)
+                {
+                    Session["ID"] = user.ID;
+                    Session["Name"] = user.Login;
+                    return RedirectToAction("Index", "Home");
+                }
+                ViewBag.ErrorMessage = "Email or Password incorrect.";
             }
             else
             {
-                ViewBag.ErrorMessage = "Email or Password incorrect.";
-                return View();
+                ViewBag.ErrorMessage = "Email or Username not supplied";
             }
+            return View();
         }
         public ActionResult Logout()
         {
@@ -49,6 +53,10 @@ namespace capstone.Controllers
         }
         public ActionResult Manage()
         {
+            if(Session["ID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
         public ActionResult Edit(int ID)

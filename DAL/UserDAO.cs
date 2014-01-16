@@ -90,7 +90,7 @@ namespace DAL
                 new SqlParameter("@Email", login),
                 new SqlParameter("@Username", login)
             };
-            return ReadUsers("GetUser", parameters).SingleOrDefault();
+                return ReadUsers("GetUser", parameters).SingleOrDefault();
         }
         public User GetUserByEmail(string email)
         {

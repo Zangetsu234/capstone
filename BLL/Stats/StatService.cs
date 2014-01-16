@@ -40,7 +40,7 @@ namespace BLL
             statVM.Foreign = stat.Foreign;
             return stat;
         }
-        public List<StatVM> GetCharacterStats(int c_id)
+        public List<StatVM> GetCharacterStats(int? c_id)
         {
             List<StatVM> statsVM = new List<StatVM>();
             StatisticsDAO dao = new StatisticsDAO();

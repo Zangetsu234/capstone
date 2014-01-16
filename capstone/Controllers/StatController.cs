@@ -9,9 +9,15 @@ namespace capstone.Controllers
 {
     public class StatController : Controller
     {
-        public ActionResult ViewStats(int ID)
+        //[HttpGet]
+        //public ActionResult ViewStats()
+        //{
+        //    return RedirectToAction("Index", "Home");
+        //}
+        //[HttpPost]
+        public ActionResult ViewStats(int? ID)
         {
-            if(Session["ID"] == null)
+            if (Session["ID"] == null || ID == null)
             {
                 return RedirectToAction("Index", "Home");
             }
