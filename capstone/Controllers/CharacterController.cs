@@ -36,7 +36,6 @@ namespace capstone.Controllers
             }
             return View(charFM);
         }
-        [HttpGet]
         public ActionResult ViewCharacters()
         {
             if(Session["ID"] == null)
@@ -47,6 +46,14 @@ namespace capstone.Controllers
             CharactersVM character = new CharactersVM();
             character.Characters = charS.GetUserCharacters(Convert.ToInt32(Session["ID"]));
             return View("ViewCharacters", character);
+        }
+        public ActionResult Choose()
+        {
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
     }
 }

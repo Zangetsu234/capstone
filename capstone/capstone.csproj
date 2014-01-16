@@ -116,6 +116,7 @@
     <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatController.cs" />
+    <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +163,8 @@
     <Content Include="Views\Account\_DeleteAccount.cshtml" />
     <Content Include="Views\Stat\ViewStats.cshtml" />
     <Content Include="Views\Character\ViewCharacters.cshtml" />
+    <Content Include="Views\Story\Start.cshtml" />
+    <Content Include="Views\Character\Choose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
