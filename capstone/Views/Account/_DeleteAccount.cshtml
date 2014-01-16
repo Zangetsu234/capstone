@@ -12,5 +12,5 @@
         <p>Delete Account</p>
     </div>
     @Html.HiddenFor(model => model.ID)
-    <input type="submit" value="Delete" />
+    <input type="submit" value="Delete" onclick="confirm('Are you sure you want to delete this account?')"/>
 }

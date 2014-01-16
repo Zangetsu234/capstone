@@ -83,15 +83,14 @@ namespace DAL
                 return null;
             }
         }
-        public User GetUser(string email)
+        public User GetUser(string login)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Email", email),
-                new SqlParameter("@Username", email)
+                new SqlParameter("@Email", login),
+                new SqlParameter("@Username", login)
             };
-            List<User> user = ReadUsers("GetUser", parameters);
-            return user[0];
+            return ReadUsers("GetUser", parameters).SingleOrDefault();
         }
         public User GetUserByEmail(string email)
         {
