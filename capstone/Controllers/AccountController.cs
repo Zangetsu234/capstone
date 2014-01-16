@@ -152,9 +152,9 @@ namespace capstone.Controllers
         }
         public ActionResult Delete(UserVM userVM)
         {
-            UserService log = new UserService();
+            UserService userS = new UserService();
             userVM.ID = Convert.ToInt32(Session["ID"]);
-            log.RemoveUser(userVM.ID);
+            userS.RemoveUser(userVM.ID);
             Session["ID"] = null;
             Session["Name"] = null;
             return RedirectToAction("Index", "Home");
