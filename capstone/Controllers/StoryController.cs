@@ -10,7 +10,7 @@ namespace capstone.Controllers
     {
         public ActionResult Start()
         {
-            if(Session["ID"] == null)
+            if(Session["ID"] == null && Session["CharID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }

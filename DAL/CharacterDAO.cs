@@ -90,5 +90,9 @@ namespace DAL
             };
             return ReadCharacters("GetCharacterByName", parameters).SingleOrDefault();
         }
+        public List<Character> GetAllCharacters()
+        {
+            return ReadCharacters("GetAllCharacters", null);
+        }
     }
 }

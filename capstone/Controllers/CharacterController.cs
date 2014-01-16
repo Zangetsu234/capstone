@@ -49,7 +49,7 @@ namespace capstone.Controllers
         }
         public ActionResult Choose()
         {
-            if (Session["ID"] == null)
+            if(Session["ID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
