@@ -1,21 +1,21 @@
 ﻿@model BLL.CharacterFM
 
 @{
-    ViewBag.Title = "Create Character";
+    ViewBag.Title = "Character Creation";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Create A New Character</h2>
 
 <section>
     @using (Html.BeginForm("Create", "Character", FormMethod.Post))
     {
-        <h4>Create a new character.</h4>
+        <h4>Input your character's name</h4>
         @ViewBag.ErrorMessage
         <div>
             @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Character Name" })
         </div>
         <div>
-            <h5>Alignment</h5>
+            <h4> Choose an Alignment</h4>
             @Html.RadioButtonFor(m => m.Alignment, true, new { @checked = "checked" }) Good
             <p style="margin:3px;"></p>
             @Html.RadioButtonFor(m => m.Alignment, false) Evil
