@@ -47,13 +47,26 @@ namespace capstone.Controllers
             character.Characters = charS.GetUserCharacters(Convert.ToInt32(Session["ID"]));
             return View("ViewCharacters", character);
         }
+        [HttpGet]
         public ActionResult Choose()
         {
             if(Session["ID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            CharacterService charS = new CharacterService();
+            CharactersVM character = new CharactersVM();
+            character.Characters = charS.GetUserCharacters(Convert.ToInt32(Session["ID"]));
+            return View("Choose", character.Characters);
+        }
+        [HttpPost]
+        public ActionResult Choose(int CharID)
+        {
+            if(CharID == 0)
+            {
+                return View("Create");
+            }
+            return RedirectToAction("Start", "Story", CharID);
         }
     }
 }

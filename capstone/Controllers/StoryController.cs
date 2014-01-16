@@ -8,9 +8,10 @@ namespace capstone.Controllers
 {
     public class StoryController : Controller
     {
-        public ActionResult Start()
+        public ActionResult Start(int CharID)
         {
-            if(Session["ID"] == null && Session["CharID"] == null)
+            Session["CharID"] = CharID;
+            if(Session["ID"] == null || Session["CharID"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }

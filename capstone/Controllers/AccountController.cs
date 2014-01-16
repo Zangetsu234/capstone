@@ -49,6 +49,8 @@ namespace capstone.Controllers
         public ActionResult Logout()
         {
             Session["ID"] = null;
+            Session["Name"] = null;
+            Session["CharID"] = null;
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Manage()
