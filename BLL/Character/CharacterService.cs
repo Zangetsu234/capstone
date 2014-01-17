@@ -52,6 +52,11 @@ namespace BLL
             }
             return charsVM;
         }
+        public CharacterVM GetCharacterByID(int c_id)
+        {
+            CharacterDAO dao = new CharacterDAO();
+            return ConvertCharacter(dao.GetCharacterByID(c_id));
+        }
         public void RemoveCharacter(int CharID)
         {
             CharacterDAO dao = new CharacterDAO();

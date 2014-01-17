@@ -90,6 +90,14 @@ namespace DAL
             };
             return ReadCharacters("GetCharacterByName", parameters).SingleOrDefault();
         }
+        public Character GetCharacterByID(int c_id)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@c_id", c_id)
+            };
+            return ReadCharacters("GetCharacterByID", parameters).SingleOrDefault();
+        }
         public List<Character> GetAllCharacters()
         {
             return ReadCharacters("GetAllCharacters", null);

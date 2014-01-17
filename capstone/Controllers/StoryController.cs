@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BLL;
 
 namespace capstone.Controllers
 {
@@ -15,13 +16,13 @@ namespace capstone.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            CharacterService charS = new CharacterService();
+            return View(charS.GetCharacterByID(Convert.ToInt32(Session["CharID"])).Alignment);
         }
         public ActionResult Index(int CharID)
         {
             Session["CharID"] = CharID;
             return RedirectToAction("Start");
         }
-
 	}
 }
