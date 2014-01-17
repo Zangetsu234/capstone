@@ -118,6 +118,13 @@ table {
     height:25px;
 }
 
+#stat-footer {
+    background-color:white;
+    bottom:25px;
+    position:fixed;
+    width:40%;
+}
+
 #footer p { 
     font-size: 0.85em;
     list-style-image: none;

@@ -168,6 +168,7 @@
     <Content Include="Views\Character\ViewCharacters.cshtml" />
     <Content Include="Views\Story\Start.cshtml" />
     <Content Include="Views\Character\Choose.cshtml" />
+    <Content Include="Views\Stat\_Local.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

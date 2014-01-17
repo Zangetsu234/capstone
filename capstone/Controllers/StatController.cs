@@ -20,5 +20,12 @@ namespace capstone.Controllers
             stats.Stats = statS.GetCharacterStats(ID);
             return View("ViewStats", stats);
         }
+        public ActionResult _Local()
+        {
+            StatService statS = new StatService();
+            StatsVM stats = new StatsVM();
+            stats.Stats = statS.GetCharacterStats(Convert.ToInt32(Session["CharID"]));
+            return PartialView("_Local", stats);
+        }
 	}
 }
