@@ -128,6 +128,7 @@
     <Content Include="Content\capstone.css" />
     <Content Include="Content\Cat1.png" />
     <Content Include="Content\Cat2.png" />
+    <Content Include="Content\content_background.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
