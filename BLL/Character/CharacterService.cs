@@ -26,7 +26,7 @@ namespace BLL
         public CharacterVM ConvertCharacter(Character character)
         {
             CharacterVM charVM = new CharacterVM();
-            charVM.ID = character.ID;
+            charVM.CharID = character.CharID;
             charVM.Name = character.Name;
             charVM.Alignment = character.Alignment;
             charVM.Foreign = character.Foreign;
@@ -35,7 +35,7 @@ namespace BLL
         public Character ConvertCharacter(CharacterVM charVM)
         {
             Character character = new Character();
-            character.ID = charVM.ID;
+            character.CharID = charVM.CharID;
             character.Name = charVM.Name;
             character.Alignment = charVM.Alignment;
             character.Foreign = charVM.Foreign;
@@ -52,10 +52,10 @@ namespace BLL
             }
             return charsVM;
         }
-        public void RemoveCharacter(int ID)
+        public void RemoveCharacter(int CharID)
         {
             CharacterDAO dao = new CharacterDAO();
-            dao.RemoveCharacter(ID);
+            dao.RemoveCharacter(CharID);
         }
         public bool CharacterNameLength(CharacterFM charFM)
         {

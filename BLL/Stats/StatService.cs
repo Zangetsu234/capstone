@@ -17,7 +17,7 @@ namespace BLL
             stat.Strength = statFM.Strength;
             stat.Intelligence = statFM.Intelligence;
             stat.Dexterity = statFM.Dexterity;
-            stat.Foreign = cdao.GetCharacterByName(name).ID;
+            stat.Foreign = cdao.GetCharacterByName(name).CharID;
             dao.CreateStats(stat);
         }
         public StatVM ConvertStat(Statistics stat)

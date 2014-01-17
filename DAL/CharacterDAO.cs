@@ -39,7 +39,7 @@ namespace DAL
                     while (data.Read())
                     {
                         Character character = new Character();
-                        character.ID = Convert.ToInt32(data["c_id"]);
+                        character.CharID = Convert.ToInt32(data["c_id"]);
                         character.Name = data["Name"].ToString();
                         character.Alignment = Convert.ToBoolean(data["Alignment"]);
                         character.Foreign = Convert.ToInt32(data["u_id"]);
@@ -74,11 +74,11 @@ namespace DAL
             };
             return ReadCharacters("GetUserCharacters", parameters);
         }
-        public void RemoveCharacter(int ID)
+        public void RemoveCharacter(int CharID)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@c_id", ID)
+                new SqlParameter("@c_id", CharID)
             };
             Write("RemoveCharacter", parameters);
         }

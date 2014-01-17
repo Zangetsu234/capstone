@@ -69,5 +69,11 @@ namespace capstone.Controllers
             Session["CharID"] = CharID;
             return RedirectToAction("Start", "Story");
         }
+        public ActionResult Delete(CharacterVM charVM)
+        {
+            CharacterService charS = new CharacterService();
+            charS.RemoveCharacter(charVM.CharID);
+            return RedirectToAction("ViewCharacters");
+        }
     }
 }

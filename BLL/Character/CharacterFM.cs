@@ -9,7 +9,7 @@ namespace BLL
 {
     public class CharacterFM
     {
-        public int ID { get; set; }
+        public int CharID { get; set; }
         public string Name { get; set; }
         public bool Alignment { get; set; }
         public int Foreign { get; set; }
