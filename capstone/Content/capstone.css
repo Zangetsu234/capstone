@@ -32,6 +32,12 @@ table {
     text-align:center;
 }
 
+#side-graphic img{
+    position:static;
+    height:100%;
+    width:30%;
+}
+
 #form-group {
     text-align:center;
 }
@@ -39,8 +45,8 @@ table {
 #container {
     background-color: white;
     height:100%;
-    width:95%;
-    margin:auto;
+    width:100%;
+    margin:0;
     clear:both;
 }
 
