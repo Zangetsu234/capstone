@@ -19,7 +19,7 @@
                 <td>
                 @Model.Characters[i].Name:  
                 @Html.ActionLink("View Stats", "ViewStats", "Stat", new { ID = @Model.Characters[i].ID }, new { })  
-                @Html.ActionLink("Start Game", "Start", "Story", new { CharID = @Model.Characters[i].ID }, new { })
+                @Html.ActionLink("Start Game", "Index", "Story", new { CharID = @Model.Characters[i].ID }, new { })
                 </td>
             </tr>
         }

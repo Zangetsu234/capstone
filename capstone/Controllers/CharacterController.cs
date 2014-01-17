@@ -66,7 +66,8 @@ namespace capstone.Controllers
             {
                 return View("Create");
             }
-            return RedirectToAction("Start", "Story", CharID);
+            Session["CharID"] = CharID;
+            return RedirectToAction("Start", "Story");
         }
     }
 }

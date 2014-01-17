@@ -7,34 +7,43 @@
     <link href="~/Content/capstone.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="top_nav">
-        <!-- top links -->
-        <ul>
-            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>|</li>
-            <li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>|</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-        </ul>
-        <div style="float:right;">
-            @Html.Partial("_LoginPartial")
+    <!--container for body items-->
+    <div id="container-body">
+        <!--container for top nav bar-->
+        <div id="container-top_nav">
+            <div id="top_nav">
+                <!--left side links-->
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>|</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>|</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <!--right side links-->
+                <div style="float:right;">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Content area, where the pages open inside of the laid-out box design area -->
-    <div id="container">
-        <div id="side-graphic">
-            <img src="~/Content/Cat1.png" align="left" />
+        <!--left picture-->
+        <div id="side-graphic-1">
+            <img src="~/Content/Cat1.png" />
         </div>
-        <div id="side-graphic">
-            <img src="~/Content/Cat2.png" align="right" />
+        <!--right picture-->
+        <div id="side-graphic-2">
+            <img src="~/Content/Cat2.png" />
         </div>
-        @RenderBody()
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </div>
-    <!-- Footer area, for the credits and year -->
-    <div id="footer">
-        <p>&copy; @DateTime.Now.Year Onshore Capstone Project</p>
+        <!--Content area, where the pages open inside of the container-->
+        <div id="content">
+            @RenderBody()
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+            <!-- Footer area, for the credits and year -->
+            <div id="footer">
+                <p>&copy; @DateTime.Now.Year Onshore Capstone Project</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
